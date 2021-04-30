@@ -1,0 +1,24 @@
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\bin\Debug\FdisManager.exe.config
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\bin\Debug\FdisManager.exe
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\bin\Debug\FdisManager.pdb
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\bin\Debug\FdisManager.xml
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.vbprojAssemblyReference.cache
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.Form1.resources
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.Resources.resources
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.vbproj.GenerateResource.cache
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.vbproj.CoreCompileInputs.cache
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.exe
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.xml
+C:\Users\Angelo\AppData\Local\Temporary Projects\FdisManager\obj\Debug\FdisManager.pdb
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\bin\Debug\FdisManager.exe.config
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\bin\Debug\FdisManager.exe
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\bin\Debug\FdisManager.pdb
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\bin\Debug\FdisManager.xml
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.vbprojAssemblyReference.cache
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.Form1.resources
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.Resources.resources
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.vbproj.GenerateResource.cache
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.vbproj.CoreCompileInputs.cache
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.exe
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.xml
+C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.pdb
