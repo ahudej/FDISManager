@@ -60,14 +60,33 @@
         End Set
     End Property
 
-    Private newPropertyValue As String
-    Public Property NewProperty() As String
+    Private _DateActive As Date
+    Public Property DateActive() As Date
         Get
-            Return newPropertyValue
+            Return _DateActive
         End Get
-        Set(ByVal value As String)
-            newPropertyValue = value
+        Set(ByVal value As Date)
+            _DateActive = value
         End Set
     End Property
 
+    Private _FunktionBeginn As Date
+    Public Property FunktionBeginn() As Date
+        Get
+            Return _FunktionBeginn
+        End Get
+        Set(ByVal value As Date)
+            _FunktionBeginn = value
+        End Set
+    End Property
+
+    Private _Funktion As String
+    Public Property Funktion() As String
+        Get
+            Return _Funktion
+        End Get
+        Set(ByVal value As String)
+            _Funktion = value
+        End Set
+    End Property
 End Class

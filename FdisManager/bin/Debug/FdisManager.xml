@@ -22,5 +22,13 @@ FdisManager
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:FdisManager.Einsatz.CalculateEmergencyTimeSpanPerMember(System.DateTime,System.DateTime)">
+ <summary>
+ Die Einsatzzeit in Minuten berechnen.
+ </summary>
+ <param name="startTime"></param>
+ <param name="endTime"></param>
+ <returns></returns>
+</member>
 </members>
 </doc>
