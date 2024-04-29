@@ -89,4 +89,15 @@
             _Funktion = value
         End Set
     End Property
+
+    Private _JoinedDate As Date
+    Public Property JoinedDate() As Date
+        Get
+            Return _JoinedDate
+        End Get
+        Set(ByVal value As Date)
+            _JoinedDate = value
+        End Set
+    End Property
+
 End Class

@@ -48,10 +48,17 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BtnBirthday = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.LblTrainingsYouthAll = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.LblActivityHours2 = New System.Windows.Forms.Label()
+        Me.LblTrainingHours2 = New System.Windows.Forms.Label()
+        Me.LblEmergencyHours2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.lblActivityHours = New System.Windows.Forms.Label()
         Me.LblAmountActivityTotal = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LblTrainingsHours = New System.Windows.Forms.Label()
         Me.LblTrainingsZug = New System.Windows.Forms.Label()
         Me.LblAmountTrainingsOperator = New System.Windows.Forms.Label()
         Me.LblAmountTrainingsGroups = New System.Windows.Forms.Label()
@@ -69,24 +76,24 @@ Partial Class Form1
         Me.LblAmountTecAccidents = New System.Windows.Forms.Label()
         Me.LblAmountFire = New System.Windows.Forms.Label()
         Me.FbdDirectory = New System.Windows.Forms.FolderBrowserDialog()
-        Me.LblTrainingsHours = New System.Windows.Forms.Label()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.LblEmergencyHours2 = New System.Windows.Forms.Label()
-        Me.LblTrainingHours2 = New System.Windows.Forms.Label()
-        Me.LblActivityHours2 = New System.Windows.Forms.Label()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.LblTrainingsYouthAll = New System.Windows.Forms.Label()
+        Me.BtnShowAwards = New System.Windows.Forms.Button()
+        Me.LblAward25 = New System.Windows.Forms.Label()
+        Me.LblAward40 = New System.Windows.Forms.Label()
+        Me.LblAward50 = New System.Windows.Forms.Label()
+        Me.LblAward60 = New System.Windows.Forms.Label()
+        Me.LblAward70 = New System.Windows.Forms.Label()
+        Me.LblAward80 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -103,6 +110,7 @@ Partial Class Form1
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.BtnShowAwards)
         Me.TabPage1.Controls.Add(Me.FlowLayoutPanel1)
         Me.TabPage1.Controls.Add(Me.BtnExport)
         Me.TabPage1.Controls.Add(Me.LblTitle)
@@ -136,6 +144,12 @@ Partial Class Form1
         Me.FlowLayoutPanel1.Controls.Add(Me.LblRankBM)
         Me.FlowLayoutPanel1.Controls.Add(Me.LblRankOBM)
         Me.FlowLayoutPanel1.Controls.Add(Me.LblRankHBM)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward25)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward40)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward50)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward60)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward70)
+        Me.FlowLayoutPanel1.Controls.Add(Me.LblAward80)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(11, 521)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(809, 34)
@@ -349,7 +363,7 @@ Partial Class Form1
         '
         'BtnRankUp
         '
-        Me.BtnRankUp.Location = New System.Drawing.Point(826, 6)
+        Me.BtnRankUp.Location = New System.Drawing.Point(705, 6)
         Me.BtnRankUp.Name = "BtnRankUp"
         Me.BtnRankUp.Size = New System.Drawing.Size(115, 34)
         Me.BtnRankUp.TabIndex = 1
@@ -369,7 +383,7 @@ Partial Class Form1
         '
         'BtnBirthday
         '
-        Me.BtnBirthday.Location = New System.Drawing.Point(705, 6)
+        Me.BtnBirthday.Location = New System.Drawing.Point(584, 6)
         Me.BtnBirthday.Name = "BtnBirthday"
         Me.BtnBirthday.Size = New System.Drawing.Size(115, 34)
         Me.BtnBirthday.TabIndex = 0
@@ -391,6 +405,66 @@ Partial Class Form1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Einsatz-Daten"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.LblTrainingsYouthAll)
+        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.Location = New System.Drawing.Point(291, 192)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(245, 163)
+        Me.GroupBox6.TabIndex = 7
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Jugend"
+        '
+        'LblTrainingsYouthAll
+        '
+        Me.LblTrainingsYouthAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTrainingsYouthAll.Location = New System.Drawing.Point(6, 27)
+        Me.LblTrainingsYouthAll.Name = "LblTrainingsYouthAll"
+        Me.LblTrainingsYouthAll.Size = New System.Drawing.Size(215, 21)
+        Me.LblTrainingsYouthAll.TabIndex = 0
+        Me.LblTrainingsYouthAll.Text = "Anzahl Übungen Gesamt:"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.LblActivityHours2)
+        Me.GroupBox5.Controls.Add(Me.LblTrainingHours2)
+        Me.GroupBox5.Controls.Add(Me.LblEmergencyHours2)
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.Location = New System.Drawing.Point(572, 202)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(245, 153)
+        Me.GroupBox5.TabIndex = 8
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Zeitaufstellung"
+        '
+        'LblActivityHours2
+        '
+        Me.LblActivityHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblActivityHours2.Location = New System.Drawing.Point(6, 69)
+        Me.LblActivityHours2.Name = "LblActivityHours2"
+        Me.LblActivityHours2.Size = New System.Drawing.Size(215, 21)
+        Me.LblActivityHours2.TabIndex = 7
+        Me.LblActivityHours2.Text = "Gesamttätigkeitsstunden:"
+        '
+        'LblTrainingHours2
+        '
+        Me.LblTrainingHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTrainingHours2.Location = New System.Drawing.Point(6, 48)
+        Me.LblTrainingHours2.Name = "LblTrainingHours2"
+        Me.LblTrainingHours2.Size = New System.Drawing.Size(215, 21)
+        Me.LblTrainingHours2.TabIndex = 6
+        Me.LblTrainingHours2.Text = "Gesamtübungsstunden:"
+        '
+        'LblEmergencyHours2
+        '
+        Me.LblEmergencyHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblEmergencyHours2.Location = New System.Drawing.Point(6, 27)
+        Me.LblEmergencyHours2.Name = "LblEmergencyHours2"
+        Me.LblEmergencyHours2.Size = New System.Drawing.Size(215, 21)
+        Me.LblEmergencyHours2.TabIndex = 0
+        Me.LblEmergencyHours2.Text = "Gesamteinsatzstunden:"
         '
         'GroupBox4
         '
@@ -437,6 +511,15 @@ Partial Class Form1
         Me.GroupBox3.TabIndex = 6
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Übungsdaten"
+        '
+        'LblTrainingsHours
+        '
+        Me.LblTrainingsHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTrainingsHours.Location = New System.Drawing.Point(6, 132)
+        Me.LblTrainingsHours.Name = "LblTrainingsHours"
+        Me.LblTrainingsHours.Size = New System.Drawing.Size(215, 21)
+        Me.LblTrainingsHours.TabIndex = 5
+        Me.LblTrainingsHours.Text = "Gesamtübungsstunden:"
         '
         'LblTrainingsZug
         '
@@ -593,74 +676,86 @@ Partial Class Form1
         Me.LblAmountFire.TabIndex = 0
         Me.LblAmountFire.Text = "Anzahl Brand-Einsätze:"
         '
-        'LblTrainingsHours
+        'BtnShowAwards
         '
-        Me.LblTrainingsHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTrainingsHours.Location = New System.Drawing.Point(6, 132)
-        Me.LblTrainingsHours.Name = "LblTrainingsHours"
-        Me.LblTrainingsHours.Size = New System.Drawing.Size(215, 21)
-        Me.LblTrainingsHours.TabIndex = 5
-        Me.LblTrainingsHours.Text = "Gesamtübungsstunden:"
+        Me.BtnShowAwards.Location = New System.Drawing.Point(826, 6)
+        Me.BtnShowAwards.Name = "BtnShowAwards"
+        Me.BtnShowAwards.Size = New System.Drawing.Size(115, 34)
+        Me.BtnShowAwards.TabIndex = 4
+        Me.BtnShowAwards.Text = "Auszeichnungen"
+        Me.BtnShowAwards.UseVisualStyleBackColor = True
         '
-        'GroupBox5
+        'LblAward25
         '
-        Me.GroupBox5.Controls.Add(Me.LblActivityHours2)
-        Me.GroupBox5.Controls.Add(Me.LblTrainingHours2)
-        Me.GroupBox5.Controls.Add(Me.LblEmergencyHours2)
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(572, 202)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(245, 153)
-        Me.GroupBox5.TabIndex = 8
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Zeitaufstellung"
+        Me.LblAward25.AutoSize = True
+        Me.LblAward25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward25.Location = New System.Drawing.Point(411, 23)
+        Me.LblAward25.Name = "LblAward25"
+        Me.LblAward25.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward25.TabIndex = 17
+        Me.LblAward25.Text = "FM: 6"
+        Me.LblAward25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward25.Visible = False
         '
-        'LblEmergencyHours2
+        'LblAward40
         '
-        Me.LblEmergencyHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblEmergencyHours2.Location = New System.Drawing.Point(6, 27)
-        Me.LblEmergencyHours2.Name = "LblEmergencyHours2"
-        Me.LblEmergencyHours2.Size = New System.Drawing.Size(215, 21)
-        Me.LblEmergencyHours2.TabIndex = 0
-        Me.LblEmergencyHours2.Text = "Gesamteinsatzstunden:"
+        Me.LblAward40.AutoSize = True
+        Me.LblAward40.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward40.Location = New System.Drawing.Point(456, 23)
+        Me.LblAward40.Name = "LblAward40"
+        Me.LblAward40.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward40.TabIndex = 18
+        Me.LblAward40.Text = "FM: 6"
+        Me.LblAward40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward40.Visible = False
         '
-        'LblTrainingHours2
+        'LblAward50
         '
-        Me.LblTrainingHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTrainingHours2.Location = New System.Drawing.Point(6, 48)
-        Me.LblTrainingHours2.Name = "LblTrainingHours2"
-        Me.LblTrainingHours2.Size = New System.Drawing.Size(215, 21)
-        Me.LblTrainingHours2.TabIndex = 6
-        Me.LblTrainingHours2.Text = "Gesamtübungsstunden:"
+        Me.LblAward50.AutoSize = True
+        Me.LblAward50.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward50.Location = New System.Drawing.Point(501, 23)
+        Me.LblAward50.Name = "LblAward50"
+        Me.LblAward50.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward50.TabIndex = 19
+        Me.LblAward50.Text = "FM: 6"
+        Me.LblAward50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward50.Visible = False
         '
-        'LblActivityHours2
+        'LblAward60
         '
-        Me.LblActivityHours2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblActivityHours2.Location = New System.Drawing.Point(6, 69)
-        Me.LblActivityHours2.Name = "LblActivityHours2"
-        Me.LblActivityHours2.Size = New System.Drawing.Size(215, 21)
-        Me.LblActivityHours2.TabIndex = 7
-        Me.LblActivityHours2.Text = "Gesamttätigkeitsstunden:"
+        Me.LblAward60.AutoSize = True
+        Me.LblAward60.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward60.Location = New System.Drawing.Point(546, 23)
+        Me.LblAward60.Name = "LblAward60"
+        Me.LblAward60.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward60.TabIndex = 20
+        Me.LblAward60.Text = "FM: 6"
+        Me.LblAward60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward60.Visible = False
         '
-        'GroupBox6
+        'LblAward70
         '
-        Me.GroupBox6.Controls.Add(Me.LblTrainingsYouthAll)
-        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.Location = New System.Drawing.Point(291, 192)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(245, 163)
-        Me.GroupBox6.TabIndex = 7
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Jugend"
+        Me.LblAward70.AutoSize = True
+        Me.LblAward70.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward70.Location = New System.Drawing.Point(591, 23)
+        Me.LblAward70.Name = "LblAward70"
+        Me.LblAward70.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward70.TabIndex = 21
+        Me.LblAward70.Text = "FM: 6"
+        Me.LblAward70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward70.Visible = False
         '
-        'LblTrainingsYouthAll
+        'LblAward80
         '
-        Me.LblTrainingsYouthAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTrainingsYouthAll.Location = New System.Drawing.Point(6, 27)
-        Me.LblTrainingsYouthAll.Name = "LblTrainingsYouthAll"
-        Me.LblTrainingsYouthAll.Size = New System.Drawing.Size(215, 21)
-        Me.LblTrainingsYouthAll.TabIndex = 0
-        Me.LblTrainingsYouthAll.Text = "Anzahl Übungen Gesamt:"
+        Me.LblAward80.AutoSize = True
+        Me.LblAward80.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAward80.Location = New System.Drawing.Point(636, 23)
+        Me.LblAward80.Name = "LblAward80"
+        Me.LblAward80.Size = New System.Drawing.Size(39, 16)
+        Me.LblAward80.TabIndex = 22
+        Me.LblAward80.Text = "FM: 6"
+        Me.LblAward80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblAward80.Visible = False
         '
         'Form1
         '
@@ -673,14 +768,15 @@ Partial Class Form1
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -739,4 +835,11 @@ Partial Class Form1
     Friend WithEvents LblTrainingsHours As Label
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents LblTrainingsYouthAll As Label
+    Friend WithEvents BtnShowAwards As Button
+    Friend WithEvents LblAward25 As Label
+    Friend WithEvents LblAward40 As Label
+    Friend WithEvents LblAward50 As Label
+    Friend WithEvents LblAward60 As Label
+    Friend WithEvents LblAward70 As Label
+    Friend WithEvents LblAward80 As Label
 End Class

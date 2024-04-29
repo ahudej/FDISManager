@@ -3,6 +3,7 @@ Imports System.Reflection
 Imports System.Data
 Imports GemBox.Spreadsheet
 Imports System.Text
+Imports System.Environment
 
 Public Class Form1
 
@@ -28,6 +29,124 @@ Public Class Form1
         getDirectory()
     End Sub
 
+    Private Sub BtnShowAwards_Click(sender As Object, e As EventArgs) Handles BtnShowAwards.Click
+        Dim Path As String = _Path & "\FWDaten\mitglieder.csv"
+
+        If Not File.Exists(Path) Then
+            MessageBox.Show("Die auszulesenden Dateien fehlen in dem angegeben Verzeichnis.", "FDIS-Manager", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+
+            Dim DataMembers = New DataTable
+            Dim DataFunktions = New DataTable
+            Dim ShowData = New DataTable
+            Dim Mitglied As New Mitglied
+            Dim Handler As New CSVDataHandler
+            Dim AwardList25 = New List(Of Mitglied)
+            Dim AwardList40 = New List(Of Mitglied)
+            Dim AwardList50 = New List(Of Mitglied)
+            Dim AwardList60 = New List(Of Mitglied)
+            Dim AwardList70 = New List(Of Mitglied)
+            Dim AwardList80 = New List(Of Mitglied)
+
+            DataMembers = CSVDataHandler.CSVToDataTable(Path)
+
+            For i As Integer = 0 To DataMembers.Rows.Count - 1
+                If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("datum_aktiv")) Then
+                    Dim YearDiff As Integer = 0
+
+                    Mitglied = New Mitglied
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("standesbuchnummer")) Then
+                        Mitglied.Id = CInt(DataMembers.Rows(i).Item("standesbuchnummer"))
+                    End If
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("vorname")) Then
+                        Mitglied.FirstName = DataMembers.Rows(i).Item("vorname")
+                    End If
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("zuname")) Then
+                        Mitglied.SecondName = DataMembers.Rows(i).Item("zuname")
+                    End If
+
+                    Mitglied.BirthDate = Nothing
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("dienstgrad")) Then
+                        Mitglied.Rank = DataMembers.Rows(i).Item("dienstgrad")
+                    End If
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("status")) Then
+                        Mitglied.Status = DataMembers.Rows(i).Item("status")
+                    End If
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("datum_aktiv")) Then
+                        Mitglied.DateActive = Convert.ToDateTime(DataMembers.Rows(i).Item("datum_aktiv"))
+                    End If
+
+                    If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("eintrittsdatum")) Then
+                        Mitglied.JoinedDate = Convert.ToDateTime(DataMembers.Rows(i).Item("eintrittsdatum"))
+                    End If
+
+                    YearDiff = CInt(Date.Now.Year) - CInt(Mitglied.JoinedDate.Year)
+
+                    If YearDiff = 25 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList25.Add(Mitglied)
+                    ElseIf YearDiff = 40 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList40.Add(Mitglied)
+                    ElseIf YearDiff = 50 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList50.Add(Mitglied)
+                    ElseIf YearDiff = 60 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList60.Add(Mitglied)
+                    ElseIf YearDiff = 70 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList70.Add(Mitglied)
+                    ElseIf YearDiff = 80 AndAlso Mitglied.Status <> "abgemeldet" Then
+                        AwardList80.Add(Mitglied)
+                    End If
+                End If
+            Next
+
+            ShowData.Columns.Add(New DataColumn("Rang", GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(1).ColumnName, GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(2).ColumnName, GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(3).ColumnName, GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(5).ColumnName, GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(9).ColumnName, GetType(String)))
+            ShowData.Columns.Add(New DataColumn(DataMembers.Columns(15).ColumnName, GetType(String)))
+
+            AddAward(ShowData, "25 Jahre")
+            AddAwardData(ShowData, AwardList25)
+            AddAward(ShowData, "40 Jahre")
+            AddAwardData(ShowData, AwardList40)
+            AddAward(ShowData, "50 Jahre")
+            AddAwardData(ShowData, AwardList50)
+            AddAward(ShowData, "60 Jahre")
+            AddAwardData(ShowData, AwardList60)
+            AddAward(ShowData, "70 Jahre")
+            AddAwardData(ShowData, AwardList70)
+            AddAward(ShowData, "80 Jahre")
+            AddAwardData(ShowData, AwardList80)
+
+            DataGridView1.DataSource = ShowData
+
+            _ExportData = New DataTable
+            _ExportData = ShowData
+
+            LblTitle.Text = "Auszeichnungen"
+            ShowBirthDayStats(False)
+            ShowRankStats(False)
+            ShowAwardStats(True)
+
+            Dim test = "25 Jahre: " + AwardList25.Count.ToString
+
+            LblAward25.Text = test
+            LblAward40.Text = "40 Jahre: " + AwardList40.Count.ToString
+            LblAward50.Text = "50 Jahre: " + AwardList50.Count.ToString
+            LblAward60.Text = "60 Jahre: " + AwardList60.Count.ToString
+            LblAward70.Text = "70 Jahre: " + AwardList70.Count.ToString
+            LblAward80.Text = "80 Jahre: " + AwardList80.Count.ToString
+
+        End If
+    End Sub
+
     Private Sub BtnBirthday_Click(sender As Object, e As EventArgs) Handles BtnBirthday.Click
         Dim Path As String = _Path & "\FWDaten\mitglieder.csv"
 
@@ -35,9 +154,8 @@ Public Class Form1
             MessageBox.Show("Die auszulesenden Dateien fehlen in dem angegeben Verzeichnis.", "FDIS-Manager", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
-            Dim Data = New DataTable
+            Dim Data As New DataTable
             Dim ShowData = New DataTable
-            Dim Coloum() As String
             Dim Handler As New CSVDataHandler
 
             Dim Mitglied As Mitglied
@@ -50,7 +168,7 @@ Public Class Form1
             Dim BirthDayList95 = New List(Of Mitglied)
             Dim BirthDayList100 = New List(Of Mitglied)
 
-            Data = Handler.CSV2DataTable(Path)
+            Data = Handler.CSVToDataTable(Path)
 
             For i As Integer = 0 To Data.Rows.Count - 1
                 Dim YearStr As String = Data.Rows(i).Item("geburtsdatum").ToString.Substring(Data.Rows(i).Item("geburtsdatum").ToString.Length - 4)
@@ -145,9 +263,9 @@ Public Class Form1
 
                     End Select
                 End If
-        Next
+            Next
 
-        ShowData.Columns.Add(New DataColumn("Runder", GetType(String)))
+            ShowData.Columns.Add(New DataColumn("Runder", GetType(String)))
             ShowData.Columns.Add(New DataColumn(Data.Columns(1).ColumnName, GetType(String)))
             ShowData.Columns.Add(New DataColumn(Data.Columns(2).ColumnName, GetType(String)))
             ShowData.Columns.Add(New DataColumn(Data.Columns(3).ColumnName, GetType(String)))
@@ -187,6 +305,7 @@ Public Class Form1
             LblTitle.Text = "Geburtstage"
             ShowBirthDayStats(True)
             ShowRankStats(False)
+            ShowAwardStats(False)
 
             LblBirthDay65.Text = "65er: " & BirthDayList65.Count
             LblBirthDay70.Text = "70er: " & BirthDayList70.Count
@@ -220,11 +339,11 @@ Public Class Form1
 
 
 
-            DataMembers = CSVDataHandler.CSV2DataTable(Path)
+            DataMembers = CSVDataHandler.CSVToDataTable(Path)
 
             Path = String.Empty
             Path = _Path & "\FWDaten\funktionen_mitglieder.csv"
-            DataFunktions = CSVDataHandler.CSV2DataTable(Path)
+            DataFunktions = CSVDataHandler.CSVToDataTable(Path)
 
             For i As Integer = 0 To DataMembers.Rows.Count - 1
                 If Not String.IsNullOrEmpty(DataMembers.Rows(i).Item("datum_aktiv")) Then
@@ -342,6 +461,7 @@ Public Class Form1
             LblTitle.Text = "Beförderungen"
             ShowBirthDayStats(False)
             ShowRankStats(True)
+            ShowAwardStats(False)
 
             LblRankOFM.Text = "OFM: " & RankUpListOFM.Count
             LblRankHFM.Text = "HFM: " & RankUpListHFM.Count
@@ -350,6 +470,7 @@ Public Class Form1
             LblRankHLM.Text = "HLM: " & RankUpListHLM.Count
         End If
     End Sub
+
 
     Public Shared Function ConvertToDataTable(Of Mitglied)(ByVal list As IList(Of Mitglied)) As DataTable
         Dim table As New DataTable()
@@ -439,8 +560,38 @@ Public Class Form1
         Next
     End Sub
 
+    Public Sub AddAward(ByVal data As DataTable, ByVal rank As String)
+        Dim R As DataRow = data.NewRow
+        R("Rang") = rank
+        R("standesbuchnummer") = ""
+        R("vorname") = ""
+        R("zuname") = ""
+        R("dienstgrad") = ""
+        R("status") = ""
+        R("datum_aktiv") = ""
+        data.Rows.Add(R)
+    End Sub
+
+    Public Sub AddAwardData(ByVal data As DataTable, ByVal list As List(Of Mitglied))
+        For i As Integer = 0 To list.Count - 1
+
+            Dim Mitglied2 As New Mitglied
+            Mitglied2 = list(i)
+
+            Dim Row As DataRow = data.NewRow
+            Row("Rang") = ""
+            Row("standesbuchnummer") = Mitglied2.Id
+            Row("vorname") = Mitglied2.FirstName
+            Row("zuname") = Mitglied2.SecondName
+            Row("dienstgrad") = Mitglied2.Rank
+
+            data.Rows.Add(Row)
+        Next
+    End Sub
+
     Private Sub BtnExport_Click(sender As Object, e As EventArgs) Handles BtnExport.Click
-        MessageBox.Show(_ExportData.Rows(1).Item("Zuname").ToString)
+        Dim exportPath As String = Path.Combine(GetFolderPath(SpecialFolder.UserProfile), "Downloads", "_FDISManagerExport.csv")
+        CSVDataHandler.DataTableToCsv(_ExportData, exportPath)
     End Sub
 
     Private Sub Form1_MouseClick(sender As Object, e As MouseEventArgs) Handles MyBase.MouseClick
@@ -513,6 +664,24 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub ShowAwardStats(ByVal show As Boolean)
+        If show Then
+            LblAward25.Visible = True
+            LblAward40.Visible = True
+            LblAward50.Visible = True
+            LblAward60.Visible = True
+            LblAward70.Visible = True
+            LblAward80.Visible = True
+        Else
+            LblAward25.Visible = False
+            LblAward40.Visible = False
+            LblAward50.Visible = False
+            LblAward60.Visible = False
+            LblAward70.Visible = False
+            LblAward80.Visible = False
+        End If
+    End Sub
+
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
 
         If TabControl1.SelectedIndex = 1 Then
@@ -537,7 +706,7 @@ Public Class Form1
                 Dim CounterOther As Integer = 0
                 Dim CounterAll As Integer = 0
 
-                Data = Handler.CSV2DataTable(Path)
+                Data = Handler.CSVToDataTable(Path)
 
                 For i As Integer = 0 To Data.Rows.Count - 1
 
@@ -578,7 +747,7 @@ Public Class Form1
         Dim Handler As New CSVDataHandler
         Dim WorkMinutes As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
 
@@ -604,7 +773,7 @@ Public Class Form1
         Dim CounterMemberYouth As Integer = 0
         Dim CounterMember As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
             If Data.Rows(i).Item("status").ToString <> "abgemeldet" Then
@@ -640,7 +809,7 @@ Public Class Form1
         Dim CounterOperator As Integer = 0
         Dim CounterTrainings As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
             Select Case Data.Rows(i).Item("uebungsart").ToString
@@ -672,7 +841,7 @@ Public Class Form1
         Dim Handler As New CSVDataHandler
         Dim WorkMinutes As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
 
@@ -692,7 +861,7 @@ Public Class Form1
         Dim CounterYouth As Integer = 0
         Dim CounterAll As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
             Select Case True
@@ -715,7 +884,7 @@ Public Class Form1
         Dim Handler As New CSVDataHandler
         Dim WorkMinutes As Integer = 0
 
-        Data = Handler.CSV2DataTable(Path)
+        Data = Handler.CSVToDataTable(Path)
 
         For i As Integer = 0 To Data.Rows.Count - 1
 
@@ -727,5 +896,4 @@ Public Class Form1
 
         lblActivityHours.Text = "Gesamttätigkeitsstunden: " & MinutesToHours(WorkMinutes).ToString
     End Function
-
 End Class

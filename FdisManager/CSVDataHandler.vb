@@ -1,6 +1,8 @@
-﻿Public Class CSVDataHandler
+﻿Imports System.IO
 
-    Public Shared Function CSV2DataTable(ByVal path As String) As DataTable
+Public Class CSVDataHandler
+
+    Public Shared Function CSVToDataTable(ByVal path As String) As DataTable
         Dim Lines = IO.File.ReadAllLines(path, System.Text.Encoding.Default)
         Dim ColoumCount = Lines.First.Split(";"c).Length
         Dim Coloum() As String
@@ -32,7 +34,22 @@
 
     End Function
 
-    Public Shared Sub DataTable2Txt(ByVal inputTable As DataTable, ByVal directory As String, ByVal exportFileName As String)
+    Public Shared Sub DataTableToCsv(dt As DataTable, filePath As String)
+        Try
+            Using writer As New StreamWriter(filePath)
+                Dim header As String = String.Join(";", dt.Columns.Cast(Of DataColumn)().Select(Function(column) column.ColumnName))
+                writer.WriteLine(header)
+
+                For Each row As DataRow In dt.Rows
+                    Dim values As String = String.Join(";", row.ItemArray.Select(Function(value) value.ToString()))
+                    writer.WriteLine(values)
+                Next
+            End Using
+
+            MessageBox.Show("Export wurde durchgeführt und in den Downloads Ordner gespeichert.")
+        Catch ex As Exception
+            MessageBox.Show("Es gab einem Fehler, beim Daten Export - vermutlich ist die Datei noch geöffnet oder wird gerade verwendet.")
+        End Try
 
     End Sub
 

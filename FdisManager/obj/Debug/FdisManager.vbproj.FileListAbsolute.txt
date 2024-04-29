@@ -22,3 +22,15 @@ C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\F
 C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.exe
 C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.xml
 C:\Users\Angelo\Documents\Privat\FDISManager\FdisManager\FdisManager\obj\Debug\FdisManager.pdb
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\bin\Debug\FdisManager.exe.config
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\bin\Debug\FdisManager.exe
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\bin\Debug\FdisManager.pdb
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\bin\Debug\FdisManager.xml
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.vbproj.AssemblyReference.cache
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.Form1.resources
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.Resources.resources
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.vbproj.GenerateResource.cache
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.vbproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.exe
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.xml
+C:\Users\Admin\Documents\Private Projekte\FDISManager\FdisManager\obj\Debug\FdisManager.pdb
